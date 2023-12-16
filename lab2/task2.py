@@ -1,3 +1,5 @@
+from typing import Optional
+
 BOOKS_DATABASE = [
     {
         "id": 1,
@@ -18,15 +20,15 @@ class Book:
         self.name = name
         self.pages = pages
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Книга "{self.name}"'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'{self.__class__.__name__}(id_={self.id_}, name={self.name!r}, pages={self.pages})'
 
 
 class Library:
-    def __init__(self, books=None):
+    def __init__(self, books: Optional[list[Book]] = None):
         if books is None:
             books = []
         self.books = books
